@@ -30,8 +30,8 @@ const removePartOfString = () => {
 };
 
 // lengthFinder();
-// uppercaseConverter("hello world");
-// lowercaseConverter("HELLO WORLD");
-// characterExtractor();
-// concatenationPractice();
-// removePartOfString();
+uppercaseConverter("hello world");
+lowercaseConverter("HELLO WORLD");
+characterExtractor();
+concatenationPractice();
+removePartOfString();
