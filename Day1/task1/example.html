@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    //Will rise an error because number1 hoisting is only done inside the external script not the all scripts
+    console.log(number1);
+    console.log(number2);
+    console.log(number3);
+  </script>
+  <script src="external.js"></script>
+  <script>
+    //Will work and print a value because all the script files are concatenated so the variables in the upper script can be seen by the down script
+    console.log(number1);
+    console.log(number2);
+    console.log(number3);
+    console.log(firstName);
+  </script>
+  <head> </head>
+  <body>
+    <h1>Hello world</h1>
+    <script>
+      console.log(number1 + number2);
+      console.log(flag + number1);
+      console.log(firstName + flag);
+      console.log(number1 + firstName);
+      console.log(number1 + number2 + firstName);
+      console.log(number1 + firstName + number2);
+      console.log(number1 * flag);
+      console.log(number1 / lastName);
+      console.log(
+        "full name: " + firstName + " " + middleName + " " + lastName
+      );
+      console.log(
+        `full name: ${firstName} ${middleName} ${lastName}
+      `
+      );
+      console.log(number1 + number2);
+    </script>
+  </body>
+</html>
