@@ -47,8 +47,7 @@ class AlarmClock extends Clock {
   #checkTime() {
     if (this.getTime() === this.#alarmTime) {
       console.log("Alarm! Wake up!");
-      clearInterval(this.#intervalId);
-      stop();
+      this.stop();
     }
   }
   start() {
@@ -58,6 +57,10 @@ class AlarmClock extends Clock {
       console.log(this.getTime());
     }, 1000);
   }
+  stop() {
+    super.stop();
+    clearInterval(this.#intervalId);
+  }
   setAlarm(newAlarmTime) {
     this.#alarmTime = newAlarmTime;
   }
@@ -65,3 +68,7 @@ class AlarmClock extends Clock {
 
 const alarm1 = new AlarmClock("14:59:55", "15:00:00");
 alarm1.start();
+setTimeout(() => {
+  alarm1.setAlarm("15:00:05");
+  alarm1.start();
+}, 10000);
