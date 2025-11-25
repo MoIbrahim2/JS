@@ -1,182 +1,162 @@
-const lengthFinder = () => {
-  const word = prompt("Enter a word:");
-  console.log(`The word "${word}" has ${word.length} characters.`);
+const toPascalCase = (str) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
 };
-
-const uppercaseConverter = (str) => {
-  const upperStr = str.toUpperCase();
-  console.log(`Uppercase: ${upperStr}`);
-};
-const lowercaseConverter = (str) => {
-  const lowerStr = str.toLowerCase();
-  console.log(`Lowercase: ${lowerStr}`);
-};
-const characterExtractor = () => {
-  const word = prompt("Enter a word:");
-  const first = word.charAt(0);
-  const middle = word.charAt(Math.floor(word.length / 2));
-  const last = word.charAt(word.length - 1);
-  console.log(`First: ${first}, Middle: ${middle}, Last: ${last}`);
-};
-const concatenationPractice = () => {
-  const firstName = prompt("Enter your first name:");
-  const lastName = prompt("Enter your last name:");
-  console.log(`Hello, ${firstName} ${lastName}!`);
-};
-const removePartOfString = () => {
-  const fullName = prompt("Enter your full name:");
-  const modifiedName = fullName.substring(0, fullName.length - 5);
-  console.log(`Modified name: ${modifiedName}`);
-};
-
-//Level 2 – Searching and Replacing
-
-const findAWord = (sentence, word) => {
-  const exists = sentence.includes(word);
-  console.log(`Does "${word}" exist in the sentence? ${exists}`);
-};
-const replaceAWord = (sentence, oldWord, newWord) => {
-  const newSentence = sentence.replaceAll(oldWord, newWord);
-  console.log(`Replaced sentence: ${newSentence}`);
-};
-const countOccurrences = (str, letter) => {
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === letter) {
-      count++;
-    }
+const names = ["sara", "ali", "noha"];
+const ages = [20, 22, 19];
+const combineAgesNames = (names, ages) => {
+  const result = [];
+  for (let i in names) {
+    result.push({ name: names[i], age: ages[i] });
   }
-  console.log(`The letter "${letter}" appears ${count} times.`);
+  return result;
 };
-const startsOrEndsWith = (str, substring) => {
-  const starts = str.startsWith(substring);
-  const ends = str.endsWith(substring);
-  console.log(
-    `Starts with "${substring}": ${starts}, Ends with "${substring}": ${ends}`
+
+const countFrequency = (arr) => {
+  const result = {};
+  arr.forEach((item) => {
+    result[item] = (result[item] || 0) + 1;
+  });
+  return result;
+};
+
+const groupGrade = (arr) => {
+  const result = { A: [], B: [], C: [], D: [], F: [] };
+  arr.forEach((item) => {
+    if (item >= 90) {
+      result.A.push(item);
+    } else if (item >= 80) {
+      result.B.push(item);
+    } else if (item >= 70) {
+      result.C.push(item);
+    } else if (item >= 60) {
+      result.D.push(item);
+    } else {
+      result.F.push(item);
+    }
+  });
+  return result;
+};
+
+const convertStudentsNamesToPascal = (arr) => {
+  arr = arr.map((value) => {
+    value.name = toPascalCase(value.name);
+    return value;
+  });
+  return arr;
+};
+
+const sortStudentsByGradeDescending = (students) => {
+  return students.sort((a, b) => b.grade - a.grade);
+};
+
+const findHighestGradeStudent = (students) => {
+  return students.reduce((max, student) =>
+    student.grade > max.grade ? student : max
   );
 };
-const removeSpaces = (sentence) => {
-  const noSpaces = sentence.replaceAll(" ", "");
-  console.log(`Sentence without spaces: ${noSpaces}`);
+const filterStudentsByGrade = (students) => {
+  return students.filter((student) => student.grade >= 60);
 };
 
-// Level 3 – Substrings and Formatting (don’t use arrays)
-
-const extractDomain = (email) => {
-  const atIndex = email.indexOf("@");
-  const domain = email.substring(atIndex + 1);
-  console.log(`Domain: ${domain}`);
+const stringifyStudents = (students) => {
+  return students.map((student) => `${student.name} ${student.grade}`);
 };
 
-const initialsGenerator = (fullName) => {
-  const spaceIndex = fullName.indexOf(" ");
-  const firstInitial = fullName.charAt(0);
-  const lastInitial = fullName.charAt(spaceIndex + 1);
-  console.log(`Initials: ${firstInitial}.${lastInitial}.`);
+const countStudentsWithLongNames = (students) => {
+  return students.filter((student) => student.name.length >= 4).length;
 };
-
-const reverseString = (str) => {
-  let reversed = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed += str[i];
-  }
-  console.log(`Reversed: ${reversed}`);
-};
-
-const palindromeChecker = (str) => {
-  let reversed = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed += str[i];
-  }
-  const isPalindrome = str === reversed;
-  console.log(`Is "${str}" a palindrome? ${isPalindrome}`);
-};
-
-const countVowels = (str) => {
-  let count = 0;
-  const vowels = "aeiouAEIOU";
-  for (let i = 0; i < str.length; i++) {
-    if (vowels.includes(str[i])) {
-      count++;
-    }
-  }
-  console.log(`Number of vowels in "${str}": ${count}`);
-};
-
-// Level 4 – Challenges
-
-const titleCase = (str) => {
-  let result = "";
-  for (let i = 0; i < str.length; i++) {
-    if (i === 0 || str[i - 1] === " ") {
-      result += str[i].toUpperCase();
-    } else {
-      result += str[i].toLowerCase();
-    }
-  }
-  console.log(`Title Case: ${result}`);
-};
-
-const maskString = (phone) => {
-  const masked =
-    "*".repeat(phone.length - 4) + phone.substring(phone.length - 4);
-  console.log(`Masked: ${masked}`);
-};
-
-const removeRepeated = (str) => {
-  let result = "";
-  for (let i = 0; i < str.length; i++) {
-    if (!result.includes(str[i])) {
-      result += str[i];
-    }
-  }
-  console.log(`Without repeats: ${result}`);
-};
-
-const longestWord = (sentence) => {
-  let maxLength = 0;
-  let currentLength = 0;
-  for (let i = 0; i < sentence.length; i++) {
-    if (sentence[i] !== " ") {
-      currentLength++;
-    } else {
-      if (currentLength > maxLength) {
-        maxLength = currentLength;
+const createBook = (title, author, year, price) => {
+  return {
+    title,
+    author,
+    year,
+    price,
+    returnBookDetails() {
+      return { title, author, year, price };
+    },
+    isClassic() {
+      if (new Date().getFullYear() - year > 20) {
+        return true;
       }
-      currentLength = 0;
-    }
-  }
-
-  if (currentLength > maxLength) {
-    maxLength = currentLength;
-  }
-  console.log(`Longest word length: ${maxLength}`);
+      return false;
+    },
+    applyDiscount(percent) {
+      price = price - price * percent;
+    },
+  };
 };
 
-// Example calls (uncomment to test)
-// lengthFinder();
-// uppercaseConverter("hello world");
-// lowercaseConverter("HELLO WORLD");
-// characterExtractor();
-// concatenationPractice();
-// removePartOfString();
+// console.log(combineAgesNames(names, ages));
+// console.log(countFrequency(["a", "b", "a", "c", "b", "a"]));
+// console.log(groupGrade([95, 82, 60, 45, 77, 88]));
+// console.log(groupGrade([95, 82, 60, 45, 77, 88]));
+// console.log(
+//   convertStudentsNamesToPascal([
+//     { name: "ahmed", grade: 90 },
+//     { name: "mona", grade: 80 },
+//   ])
+// );
+// console.log(
+//   sortStudentsByGradeDescending([
+//     { name: "Ali", grade: 70 },
+//     { name: "Sara", grade: 95 },
+//   ])
+// );
+// console.log(
+//   findHighestGradeStudent([
+//     { name: "Ali", grade: 70 },
+//     { name: "Sara", grade: 95 },
+//   ])
+// );
+// console.log(
+//   filterStudentsByGrade([
+//     { name: "Ali", grade: 55 },
+//     { name: "Sara", grade: 95 },
+//     { name: "Mona", grade: 62 },
+//   ])
+// );
+// console.log(
+//   stringifyStudents([
+//     { name: "Ali", grade: 70 },
+//     { name: "Sara", grade: 95 },
+//   ])
+// );
+// console.log(
+//   countStudentsWithLongNames([
+//     { name: "Ali" },
+//     { name: "Mona" },
+//     { name: "Zyad" },
+//   ])
+// );
+const books = [
+  createBook("1984", "George Orwell", 1949, 15.99),
+  createBook("To Kill a Mockingbird", "Harper Lee", 1960, 12.99),
+  createBook("The Great Gatsby", "F. Scott Fitzgerald", 1925, 10.99),
+  createBook("Modern Book", "Author X", 2020, 20.0),
+];
 
-//Level 2 examples
-findAWord("Hello world, how are you?", "world");
-replaceAWord("I love apples", "apples", "oranges");
-countOccurrences("hello world", "l");
-startsOrEndsWith("JavaScript is fun", "Java");
-removeSpaces("Hello world, how are you?");
+console.log("Book Details:");
+books.forEach((book, index) => {
+  console.log(`Book ${index + 1}:`, book.returnBookDetails());
+});
 
-// Level 3 examples
-extractDomain("user@example.com");
-initialsGenerator("John Smith");
-reverseString("hello");
-palindromeChecker("level");
-countVowels("hello world");
+console.log("\nIs Classic:");
+books.forEach((book, index) => {
+  console.log(`Book ${index + 1} (${book.title}): ${book.isClassic()}`);
+});
 
-// Level 4 examples
-titleCase("hello world");
-maskString("01065082666");
-removeRepeated("aabbcc");
-longestWord("The quick brown fox jumps over the lazy dog");
+const currentYear = new Date().getFullYear();
+books.forEach((book) => {
+  if (currentYear - book.year > 10) {
+    book.applyDiscount(0.1);
+  }
+});
+// Print updated details after discount
+console.log("\nUpdated Book Details after Discount:");
+books.forEach((book, index) => {
+  console.log(`Book ${index + 1}:`, book.returnBookDetails());
+});
