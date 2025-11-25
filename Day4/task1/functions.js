@@ -115,15 +115,15 @@ const sortStudents = () => {
 };
 
 //9
-console.log(students[1] + "");
+// console.log(students[1] + "");
 
 //10
-console.log(students[0] + "");
+// console.log(students[0] + "");
 
 //11
-console.log(JSON.stringify(students));
+// console.log(JSON.stringify(students));
 
-// console.log(registerStudent());
+console.log(registerStudent());
 // console.log(pushIntoArray());
 // console.log(returnAfterPascal());
 // console.log(averageAge());
