@@ -5,6 +5,7 @@ const toPascalCase = (str) => {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join("");
 };
+
 const names = ["sara", "ali", "noha"];
 const ages = [20, 22, 19];
 const combineAgesNames = (names, ages) => {
@@ -91,7 +92,7 @@ const createBook = (title, author, year, price) => {
 };
 
 // console.log(combineAgesNames(names, ages));
-// console.log(countFrequency(["a", "b", "a", "c", "b", "a"]));
+console.log(countFrequency(["a", "b", "a", "c", "b", "a"]));
 // console.log(groupGrade([95, 82, 60, 45, 77, 88]));
 // console.log(groupGrade([95, 82, 60, 45, 77, 88]));
 // console.log(
@@ -132,31 +133,31 @@ const createBook = (title, author, year, price) => {
 //     { name: "Zyad" },
 //   ])
 // );
-const books = [
-  createBook("1984", "George Orwell", 1949, 15.99),
-  createBook("To Kill a Mockingbird", "Harper Lee", 1960, 12.99),
-  createBook("The Great Gatsby", "F. Scott Fitzgerald", 1925, 10.99),
-  createBook("Modern Book", "Author X", 2020, 20.0),
-];
+// const books = [
+//   createBook("1984", "George Orwell", 1949, 15.99),
+//   createBook("To Kill a Mockingbird", "Harper Lee", 1960, 12.99),
+//   createBook("The Great Gatsby", "F. Scott Fitzgerald", 1925, 10.99),
+//   createBook("Modern Book", "Author X", 2020, 20.0),
+// ];
 
-console.log("Book Details:");
-books.forEach((book, index) => {
-  console.log(`Book ${index + 1}:`, book.returnBookDetails());
-});
+// console.log("Book Details:");
+// books.forEach((book, index) => {
+//   console.log(`Book ${index + 1}:`, book.returnBookDetails());
+// });
 
-console.log("\nIs Classic:");
-books.forEach((book, index) => {
-  console.log(`Book ${index + 1} (${book.title}): ${book.isClassic()}`);
-});
+// console.log("\nIs Classic:");
+// books.forEach((book, index) => {
+//   console.log(`Book ${index + 1} (${book.title}): ${book.isClassic()}`);
+// });
 
-const currentYear = new Date().getFullYear();
-books.forEach((book) => {
-  if (currentYear - book.year > 10) {
-    book.applyDiscount(0.1);
-  }
-});
-// Print updated details after discount
-console.log("\nUpdated Book Details after Discount:");
-books.forEach((book, index) => {
-  console.log(`Book ${index + 1}:`, book.returnBookDetails());
-});
+// const currentYear = new Date().getFullYear();
+// books.forEach((book) => {
+//   if (currentYear - book.year > 10) {
+//     book.applyDiscount(0.1);
+//   }
+// });
+// // Print updated details after discount
+// console.log("\nUpdated Book Details after Discount:");
+// books.forEach((book, index) => {
+//   console.log(`Book ${index + 1}:`, book.returnBookDetails());
+// });
