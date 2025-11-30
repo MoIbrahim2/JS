@@ -30,3 +30,25 @@ const checkedCheckboxes = document.querySelectorAll(
 checkedCheckboxes.forEach((checkbox) => {
   alert(checkbox.value);
 });
+
+const exampleElement = document.getElementById("example");
+exampleElement.style.backgroundColor = "pink";
+
+//3
+setInterval(() => {
+  document.title = new Date().toLocaleString();
+}, 1000);
+
+//4
+function startSliding(imgObject) {
+  let i = 0;
+  const timerID = setInterval(() => {
+    i = (i % 8) + 1;
+    imgObject.src = `images/${i}.jpg`;
+  }, 1000);
+  return timerID;
+}
+
+function stopSliding(timerID) {
+  clearInterval(timerID);
+}
