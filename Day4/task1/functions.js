@@ -123,8 +123,8 @@ const sortStudents = () => {
 //11
 // console.log(JSON.stringify(students));
 
-console.log(registerStudent());
-// console.log(pushIntoArray());
+// console.log(registerStudent());
+console.log(pushIntoArray());
 // console.log(returnAfterPascal());
 // console.log(averageAge());
 // console.log(returnAllStudentsWithAgesPlus20());
