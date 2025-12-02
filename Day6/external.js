@@ -52,3 +52,5 @@ function startSliding(imgObject) {
 function stopSliding(timerID) {
   clearInterval(timerID);
 }
+
+startSliding(document.images[0]);

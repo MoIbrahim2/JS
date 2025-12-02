@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>country</title>
+    <style>
+      .country-form {
+        width: 300px;
+        padding: 20px;
+        margin: 40px auto;
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+      }
+
+      .country-form label {
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .country-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        font-size: 1rem;
+      }
+
+      .country-form button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .countries-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .card {
+        width: 300px;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+      }
+
+      .card-flag {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+      .country-name {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .country-continent {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .info-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .info-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .info-text {
+        font-size: 1rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="countryForm" class="country-form">
+      <label for="countryName">Country Name</label>
+      <input
+        type="text"
+        id="countryName"
+        placeholder="Enter country name..."
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="countries-container" id="countries-container"></div>
+  </body>
+  <script src="country.js"></script>
+</html>

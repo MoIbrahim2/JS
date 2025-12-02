@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+      .row {
+        padding: 6px;
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .SD {
+        background: #ffd9d9;
+      }
+      .OS {
+        background: #ffffc7;
+      }
+      .EL {
+        background: #c7e0ff;
+      }
+      .trash {
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Department</h3>
+    <label><input type="radio" name="dept" value="SD" checked /> SD</label>
+    <label><input type="radio" name="dept" value="OS" /> OS</label>
+    <label><input type="radio" name="dept" value="EL" /> EL</label>
+
+    <h3>Student Name</h3>
+    <input id="name" />
+    <div id="nameErr" class="error"></div>
+
+    <h3>Student Grade</h3>
+    <input id="grade" />
+    <div id="gradeErr" class="error"></div>
+
+    <button id="add">Add</button>
+
+    <h3>Sort</h3>
+    <select id="sort">
+      <option value="name">Name</option>
+      <option value="grade">Grade</option>
+    </select>
+
+    <h3>Filter</h3>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="failed">Failed</option>
+      <option value="success">Success</option>
+    </select>
+
+    <h3>Students</h3>
+    <div id="list"></div>
+
+    <script src="form.js"></script>
+  </body>
+</html>

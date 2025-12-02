@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Moving Bird</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      /* make the background image cover the whole page */
+      body {
+        background-image: url("background.jpg");
+        background-size: cover; /* scale to fill, keeping aspect ratio */
+        background-position: center; /* center the image */
+        background-repeat: no-repeat; /* don't tile */
+        background-attachment: fixed; /* optional: keep background fixed on scroll */
+      }
+
+      /* foreground/moving bird */
+      .bird {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 120px; /* set desired width to make bird smaller */
+        height: auto;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- remove the large background <img> and keep only foreground images -->
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <img class="bird" src="bird.gif" alt="bird" />
+    <script src="external.js"></script>
+  </body>
+</html>
