@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Easy Quiz</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f2f2f2;
+        padding: 30px;
+      }
+      .container {
+        background: #fff;
+        width: 400px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      h2 {
+        text-align: center;
+      }
+      .answer {
+        background: #eee;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .answer:hover {
+        background: #ddd;
+      }
+      #nextBtn {
+        display: none;
+        margin-top: 15px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #4caf50;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Easy Quiz</h2>
+      <div id="question"></div>
+      <div id="answers"></div>
+      <button id="nextBtn">Next</button>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      const questions = [
+        { q: "2 + 2 = ?", choices: ["3", "4", "5"], answer: 1 },
+        {
+          q: "Capital of Egypt?",
+          choices: ["Cairo", "Dubai", "Paris"],
+          answer: 0,
+        },
+        {
+          q: "HTML stands for?",
+          choices: [
+            "Hyper Text Markup Language",
+            "Hot Mail",
+            "How To Make Lasagna",
+          ],
+          answer: 0,
+        },
+      ];
+
+      let index = 0;
+      let score = 0;
+
+      const qBox = document.getElementById("question");
+      const ansBox = document.getElementById("answers");
+      const nextBtn = document.getElementById("nextBtn");
+      const result = document.getElementById("result");
+
+      function loadQuestion() {
+        qBox.innerHTML = questions[index].q;
+        ansBox.innerHTML = "";
+        result.innerHTML = "";
+        nextBtn.style.display = "none";
+
+        questions[index].choices.forEach((choice, i) => {
+          let div = document.createElement("div");
+          div.className = "answer";
+          div.innerText = choice;
+          div.onclick = () => selectAnswer(i, div);
+          ansBox.appendChild(div);
+        });
+      }
+
+      function selectAnswer(i, div) {
+        let correct = questions[index].answer;
+        if (i === correct) {
+          score++;
+          result.innerHTML = "Correct! ✓";
+        } else {
+          result.innerHTML = "Wrong ✗";
+        }
+
+        [...ansBox.children].forEach((a) => (a.style.pointerEvents = "none"));
+
+        nextBtn.style.display = "block";
+      }
+
+      nextBtn.onclick = () => {
+        index++;
+        if (index < questions.length) {
+          loadQuestion();
+        } else {
+          qBox.innerHTML = "Quiz Finished";
+          ansBox.innerHTML = "";
+          nextBtn.style.display = "none";
+          result.innerHTML = `Your score: ${score} / ${questions.length}`;
+        }
+      };
+
+      loadQuestion();
+    </script>
+  </body>
+</html>

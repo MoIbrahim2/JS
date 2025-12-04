@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      /* General Body Styling */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        padding-top: 50px;
+      }
+
+      /* Main App Container */
+      .app-container {
+        width: 100%;
+        max-width: 600px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 28px;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+        color: #1c1e21;
+        margin-bottom: 24px;
+      }
+
+      /* Form and Input Styling */
+      form {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      form .input {
+        flex-grow: 1; /* Allows input to take available space */
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid #dddfe2;
+        padding: 0 16px;
+        font-size: 16px;
+        transition: border-color 0.2s;
+      }
+
+      form .input:focus {
+        outline: none;
+        border-color: #1877f2;
+      }
+
+      form button {
+        height: 44px;
+        background: #1877f2;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0 20px;
+        transition: background-color 0.2s;
+      }
+
+      form button:hover {
+        background: #166fe5;
+      }
+
+      /* To-Do Item Styling */
+      .toDo-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .toDo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        min-height: 50px;
+        background-color: #f7f8fa;
+        border-radius: 8px;
+        padding: 10px 16px;
+        box-sizing: border-box;
+        font-size: 17px;
+        color: #1c1e21;
+        word-break: break-word;
+      }
+
+      .removeBtn {
+        background: none;
+        border: none;
+        color: #606770;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 50%;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      .removeBtn:hover {
+        background-color: #e4e6eb;
+        color: #cc0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <h1>My To-Do List</h1>
+      <form>
+        <input
+          type="text"
+          class="input"
+          id="input"
+          placeholder="Add a new task..."
+        />
+        <button type="submit" class="button" id="btn">Add</button>
+      </form>
+      <!-- This div will hold the list of to-do items -->
+      <div class="toDo-list" id="list-container"></div>
+    </div>
+
+    <script src="toDolist.js"></script>
+  </body>
+</html>
