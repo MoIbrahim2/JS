@@ -5,8 +5,8 @@ class Bird {
     this.img.className = "bird";
     document.body.appendChild(this.img);
 
-    this.left = Math.random() * (window.innerWidth - 80);
-    this.top = Math.random() * (window.innerHeight - 80);
+    this.left = Math.random() * (window.innerWidth - this.img.width);
+    this.top = Math.random() * (window.innerHeight - this.img.height);
     this.direction = Math.random() > 0.5 ? 1 : -1;
 
     this.img.style.left = this.left + "px";
